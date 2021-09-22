@@ -10,22 +10,25 @@ import {
 import Login from './components/Login';
 import Translate from './components/Translate';
 import Profile from './components/Profile';
+import styles  from './components/Navbar.module.css'
 
 function App() {
 	console.log('App.render')
 
   return (
     <BrowserRouter>
-      <nav>
-        <li>
-          <NavLink to="/" />
-        </li>  
-        <li>
-          <NavLink to="/translate" />
-        </li>  
-        <li>
-          <NavLink to="/profile" />
-        </li>  
+      <nav className={styles.Navbar}>
+        <ul className={styles.NavbarMenu}>
+          <li className={styles.NavbarMenuItem}>
+            <NavLink exact to="/">Login</NavLink>
+          </li>  
+          <li className={styles.NavbarMenuItem}>
+            <NavLink to="/translate">Translate</NavLink>
+          </li>  
+          <li className={styles.NavbarMenuItem}>
+            <NavLink to="/profile">Profile</NavLink>
+          </li> 
+        </ul>
       </nav>    
       <main>
         <Switch>
@@ -36,8 +39,7 @@ function App() {
         </Switch>
         <Switch>
           <Route path="/profile" component={ Profile } />   
-        </Switch>
-       
+        </Switch>  
       </main>  
     </BrowserRouter>
   );
