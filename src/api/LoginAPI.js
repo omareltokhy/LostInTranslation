@@ -11,11 +11,8 @@ const requestOptions = {
 
 export const LoginAPI = {
     login(credentials) {
-        return fetch('https://super-trivia-api.herokuapp.com/translations', {
+        return fetch(apiURL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify(credentials)
         }).then(async response => {
             if (!response.ok) {
