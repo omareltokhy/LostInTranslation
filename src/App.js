@@ -12,36 +12,34 @@ import Translate from './components/Translate';
 import Profile from './components/Profile';
 
 function App() {
-  const [token, setToken] = useState();
-
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
+	console.log('App.render')
 
   return (
-    <div className="App">
-      <h1>APPLICATION</h1>
-      <BrowserRouter>
-        <nav>
-          <li>
-            <NavLink to="/" />
-            <NavLink to="/translate" />
-            <NavLink to="/profile" />
-          </li>
-        </nav>
-        <main>
-          <Switch>
-            <Route path="/" exact component={ Login } />   
-          </Switch>
-          <Switch>
-            <Route path="/translate" component={ Translate } />   
-          </Switch>
-          <Switch>
-            <Route path="/profile" component={ Profile } />   
-          </Switch>
-        </main>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <nav>
+        <li>
+          <NavLink to="/" />
+        </li>  
+        <li>
+          <NavLink to="/translate" />
+        </li>  
+        <li>
+          <NavLink to="/profile" />
+        </li>  
+      </nav>    
+      <main>
+        <Switch>
+          <Route path="/" exact component={ Login } />   
+        </Switch>
+        <Switch>
+          <Route path="/translate" component={ Translate } />   
+        </Switch>
+        <Switch>
+          <Route path="/profile" component={ Profile } />   
+        </Switch>
+       
+      </main>  
+    </BrowserRouter>
   );
 }
 

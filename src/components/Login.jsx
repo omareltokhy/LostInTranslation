@@ -1,33 +1,32 @@
 import React, { useEffect } from 'react'
 import { useUser } from '../context/UserContext'
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 function Login() {
 	const { user, setUser } = useUser()
-  const history = useHistory()
+  let history = useHistory()
 
   const handleLoginClick = () => {
-    console.log(user)
+    const username = document.getElementById('username').value
+    setUser(username)
   }
 
   useEffect(() => {
     if (user !== '') {
       history.push('/translate')
     }  
-  }, [ user ])
+  }, [ user, history ]) 
 
   return(
     <div className="login">
       <h1>Log in</h1>
-      <form>
-        <label>
+      <label>
           <p>Username</p>
-            <input type="text" onChange={e => setUser(e.target.value)}/>
+            <input type="text" id="username"/>
         </label>
         <div>
           <button onClick= { handleLoginClick }>Login</button>
         </div>
-      </form>
     </div>
   )
 }

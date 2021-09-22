@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 const withUser = Component => props => {
 	const { user } = useUser()
 
-	if (user !== '') {
+	if (user !== '') {	
 		return <Component {...props} />
 	} else {
 		return <Redirect to='/' />
