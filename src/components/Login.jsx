@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useUser } from '../context/UserContext'
 import { useHistory } from "react-router-dom";
+import { LoginAPI } from '../api/LoginAPI'
 
 function Login() {
 	const { user, setUser } = useUser()
@@ -13,7 +14,11 @@ function Login() {
 
   useEffect(() => {
     if (user !== '') {
-      history.push('/translate')
+      const result = LoginAPI.login(user)
+
+      if(result) {
+        history.push('/translate')
+      }      
     }  
   }, [ user, history ]) 
 
