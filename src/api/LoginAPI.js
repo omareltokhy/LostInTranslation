@@ -28,10 +28,12 @@ export const LoginAPI = {
               'X-API-Key': apiKey,
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ translations: [newTranslation] })
+            body: JSON.stringify({
+                translations: [newTranslation] 
+            })        
         }
 	
-		return fetch(`${apiURL}/trivia/${translationDetails.id}`, requestOptions)
+		return fetch(`${apiURL}/translations/${translationDetails.id}`, requestOptions)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('Could not add translation')
@@ -50,7 +52,7 @@ export const LoginAPI = {
               'Content-Type': 'application/json'
             },
         }
-        return fetch(`${apiURL}/trivia/${userId}`, requestOptions)
+        return fetch(`${apiURL}/translations/${userId}`, requestOptions)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('Could not get translations')
