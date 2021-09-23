@@ -5,26 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import UserProvider from './context/UserContext';
-<<<<<<< HEAD
-import TranslationProvider from './context/TranslationContext';
-=======
 import AppContext from './context/AppContext';
->>>>>>> refs/remotes/origin/main
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-<<<<<<< HEAD
-      <UserProvider>
-        <TranslationProvider>
-          <App />   
-        </TranslationProvider>
-      </UserProvider>
-=======
       <AppContext>
         <App />   
       </AppContext>
->>>>>>> refs/remotes/origin/main
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

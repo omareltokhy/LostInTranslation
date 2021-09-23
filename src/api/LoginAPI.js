@@ -6,12 +6,8 @@ export const LoginAPI = {
                 'X-API-Key': 'fVvuHQrocVXC9G9z06xa3ec9rdXYGZyJZRDXJ9k3arjVxy2zuUXX6c34Z2dgnlx2',
                 'Content-Type': 'application/json'
             },
-<<<<<<< HEAD
-            body: JSON.stringify({ username: credentials, translations: [] })
-=======
             body: JSON.stringify({ username: credentials, translations: []
              })
->>>>>>> refs/remotes/origin/main
         }).then(async response => {
             if (!response.ok) {
                 const { error = 'An unknown error occurred' } = await response.json()
@@ -35,7 +31,7 @@ export const LoginAPI = {
             body: JSON.stringify({ translations: [newTranslation] })
         }
 	
-		return fetch(`${apiURL}/trivia/${translationDetails.id}`, requestOptions)
+		return fetch(`${apiURL}/${translationDetails.id}`, requestOptions)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('Could not add translation')
@@ -54,7 +50,7 @@ export const LoginAPI = {
               'Content-Type': 'application/json'
             },
         }
-        return fetch(`${apiURL}/trivia/${userId}`, requestOptions)
+        return fetch(`${apiURL}/${userId}`, requestOptions)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('Could not get translations')

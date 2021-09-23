@@ -4,16 +4,20 @@ import TranslateToSignLanguage from './TranslateToSignLanguage';
 import {LoginAPI} from '../api/LoginAPI'
 import { useUser } from '../context/UserContext'
 import {useState} from 'react'
+import { useId } from '../context/IdContext'
 
 function Translate() {
 
 	const [sentence, setSentence] = useState('');
 
+	const { id, setId } = useId()
+
 	const handleTranslateClick = () => {
 		const sentence = document.getElementById('sentence').value
+		console.log(sentence)
 
 		const userTranslations = {
-			id: 9,
+			id: id,
 			translation: sentence
 		}
 
