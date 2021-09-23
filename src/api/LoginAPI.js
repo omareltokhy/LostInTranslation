@@ -33,7 +33,7 @@ export const LoginAPI = {
             })        
         }
 	
-		return fetch(`${apiURL}/translations/${translationDetails.id}`, requestOptions)
+		return fetch(`${apiURL}/${translationDetails.id}`, requestOptions)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('Could not add translation')
@@ -52,7 +52,7 @@ export const LoginAPI = {
               'Content-Type': 'application/json'
             },
         }
-        return fetch(`${apiURL}/translations/${userId}`, requestOptions)
+        return fetch(`${apiURL}/${userId}`, requestOptions)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('Could not get translations')
