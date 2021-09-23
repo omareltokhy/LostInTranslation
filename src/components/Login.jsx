@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useUser } from '../context/UserContext'
+import { useId } from '../context/IdContext'
 import { useHistory } from "react-router-dom";
 import { LoginAPI } from '../api/LoginAPI'
 
 function Login() {
 	const { user, setUser } = useUser()
+	const { id, setId } = useId()
+
   let history = useHistory()
 
   const handleLoginClick = () => {
-    const username = document.getElementById('username').value
-    setUser(username)
+    const input = document.getElementById('username').value
+    setUser(input)
   }
 
   useEffect(() => {
     if (user !== '') {
-      const result = LoginAPI.login(user)
+      const result = LoginAPI.login(user).then(data => setId(data.id))
 
       if(result) {
         history.push('/translate')
