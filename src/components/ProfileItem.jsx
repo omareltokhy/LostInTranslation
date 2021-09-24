@@ -1,5 +1,6 @@
 import withUser from '../hoc/withUser';
 
+// table row component for profile page
 function ProfileItem(props){
 	return (
 		<tr key={props.data.index}>

@@ -2,13 +2,12 @@ import React from "react";
 //import { useState } from "react";
 import signLanguageImages from "./SignLanguageImages";
 
+// change input into array of image paths
 const TranslateToSignLanguage = (input) => {
 
-    //console.log(input.data)
     if(input === '')return '';
-    const alphabets = /[a-z\s]/;
+    //const alphabets = /[a-z\s]/;
     let letters = input.data.toString().toLowerCase().split('');
-    //console.log(letters)
     const signLanguageSentence = [];
 
     /*for (let i = 0; i < letters.length; i++) {

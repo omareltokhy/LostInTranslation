@@ -1,4 +1,5 @@
 export const API = {
+    // adds new user on login
     login(credentials) {
         return fetch('https://super-trivia-api.herokuapp.com/translations', {
             method: 'POST',
@@ -18,6 +19,7 @@ export const API = {
             console.log(error)
         })
     },
+    // adds translation using object with userid and translation array
 	addTranslation (translationDetails) {
         console.log(translationDetails)
 		const newTranslation = translationDetails.translation
@@ -45,6 +47,7 @@ export const API = {
 			console.log(error)
 		})
 	},
+    // gets all user translations
     getTranslations(userId) {
         const apiURL = "https://super-trivia-api.herokuapp.com/translations"
         const requestOptions = {

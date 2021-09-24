@@ -13,15 +13,18 @@ function Profile() {
 
 	let history = useHistory()
 
+	// logging out
 	const handleLogoutClick = () => {
 		setUser('')
 		setId('')
 	}
 
+	// handler for child click event for deleting table rows and items
 	const deleteButtonHandler = (index) => {		
 		deleteClick(index)
 	}
 
+	// remove clicked item from items array, update api
 	const deleteClick = (index) => {
 		const translations = items
 		translations.splice(index, 1);
@@ -33,6 +36,7 @@ function Profile() {
 		API.addTranslation(userTranslations).then(data => setItems(data.translations))
 	}
 
+	// if user state has been cleared, go to login page otherwise retrieve translations
 	useEffect(() => {
 		if(user === '') {
 			history.push('/')

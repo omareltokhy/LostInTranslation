@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
+// translation state handler
 const TranslationContext = createContext(null)
 
 export const useTranslation = () => {

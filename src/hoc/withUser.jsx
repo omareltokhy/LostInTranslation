@@ -2,6 +2,7 @@ import React from 'react'
 import { useUser } from '../context/UserContext'
 import { Redirect } from 'react-router-dom'
 
+// to handle authorization checks in components
 const withUser = Component => props => {
 	const { user } = useUser()
 

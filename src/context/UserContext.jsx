@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
+// username state handler
 const UserContext = createContext(null)
 
 export const useUser = () => {

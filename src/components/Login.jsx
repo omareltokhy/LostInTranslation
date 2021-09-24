@@ -10,11 +10,13 @@ function Login() {
 
   let history = useHistory()
 
+  // set username state
   const handleLoginClick = () => {
     const input = document.getElementById('username').value
     setUser(input)
   }
 
+  // on user name change add user and go to translate page
   useEffect(() => {
     if (user !== '') {
       const result = API.login(user).then(data => setId(data.id))

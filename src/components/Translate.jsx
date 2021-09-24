@@ -4,14 +4,13 @@ import TranslateToSignLanguage from './TranslateToSignLanguage';
 import {API} from '../api/API'
 import {useState, useEffect} from 'react'
 import { useId } from '../context/IdContext'
-import { useTranslations } from '../context/TranslationContext'
 
 function Translate() {
-
 	const [sentence, setSentence] = useState('');
 	const [ items, setItems ] = useState([])
-	const { id, setId } = useId()
+	const { id } = useId()
 
+	// on translate button click, get all translations and set state
 	const handleTranslateClick = () => {
 		API.getTranslations(id).then(data => {
 			setItems(data.translations)
@@ -21,6 +20,7 @@ function Translate() {
 		})
 	}
 
+	// on item array change check if input is available, then add new translation
 	useEffect(() => {
 		const input = document.getElementById('sentence').value
 
