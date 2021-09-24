@@ -1,5 +1,5 @@
 import withUser from '../hoc/withUser';
-import { LoginAPI } from '../api/LoginAPI'
+import { API } from '../api/API'
 
 function ProfileItem(props){
 
@@ -11,7 +11,7 @@ function ProfileItem(props){
 			id: props.data.userId,
 			translation: translations 
 		}
-		LoginAPI.addTranslation(userTranslations)
+		API.addTranslation(userTranslations)
 	}
 
 	return (

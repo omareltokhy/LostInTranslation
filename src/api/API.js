@@ -1,4 +1,4 @@
-export const LoginAPI = {
+export const API = {
     login(credentials) {
         return fetch('https://super-trivia-api.herokuapp.com/translations', {
             method: 'POST',

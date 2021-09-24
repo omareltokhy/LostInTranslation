@@ -1,7 +1,7 @@
 import React from 'react';
 import withUser from '../hoc/withUser';
 import TranslateToSignLanguage from './TranslateToSignLanguage';
-import {LoginAPI} from '../api/LoginAPI'
+import {API} from '../api/API'
 import {useState, useEffect} from 'react'
 import { useId } from '../context/IdContext'
 
@@ -15,7 +15,7 @@ function Translate() {
 		//const sentence = document.getElementById('sentence').value
 		//TranslateToSignLanguage(sentence)
 
-		LoginAPI.getTranslations(id).then(data => {
+		API.getTranslations(id).then(data => {
 			setItems(data.translations)
 		})
 		.catch(error => {
@@ -26,12 +26,12 @@ function Translate() {
 	useEffect(() => {
 		let newItems = items
 		newItems.push(sentence)
-		
+
 		const userTranslations = {
 			id: id,
 			translation: newItems
 		}
-		LoginAPI.addTranslation(userTranslations);	
+		API.addTranslation(userTranslations);	
 	 }, [ items ]) 
 
 	console.log('Translate.render')

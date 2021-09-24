@@ -1,6 +1,6 @@
 import withUser from '../hoc/withUser';
 import { useEffect, useState } from 'react'
-import { LoginAPI } from '../api/LoginAPI';
+import { API } from '../api/API';
 import { useId } from '../context/IdContext'
 import { useUser } from '../context/UserContext'
 import ProfileItem from './ProfileItem';
@@ -23,7 +23,7 @@ function Profile() {
 			history.push('/')
 		} else {
 			
-			LoginAPI.getTranslations(id).then(data => {
+			API.getTranslations(id).then(data => {
 				setItems(data.translations)
 			})
 			.catch(error => {
