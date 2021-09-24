@@ -4,11 +4,11 @@ import signLanguageImages from "./SignLanguageImages";
 
 const TranslateToSignLanguage = (input) => {
 
-    console.log(input.data)
+    //console.log(input.data)
     if(input === '')return '';
     const alphabets = /[a-z\s]/;
     let letters = input.data.toString().toLowerCase().split('');
-    console.log(letters)
+    //console.log(letters)
     const signLanguageSentence = [];
 
     /*for (let i = 0; i < letters.length; i++) {

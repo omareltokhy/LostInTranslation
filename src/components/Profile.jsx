@@ -22,6 +22,7 @@ function Profile() {
 		if(user === '') {
 			history.push('/')
 		} else {
+			
 			LoginAPI.getTranslations(id).then(data => {
 				setItems(data.translations)
 			})

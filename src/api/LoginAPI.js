@@ -19,6 +19,7 @@ export const LoginAPI = {
         })
     },
 	addTranslation (translationDetails) {
+        console.log(translationDetails)
 		const newTranslation = translationDetails.translation
         const apiURL = "https://super-trivia-api.herokuapp.com/translations"
         const apiKey = "fVvuHQrocVXC9G9z06xa3ec9rdXYGZyJZRDXJ9k3arjVxy2zuUXX6c34Z2dgnlx2"
@@ -29,7 +30,7 @@ export const LoginAPI = {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                translations: [newTranslation] 
+                translations: newTranslation
             })        
         }
 	
