@@ -1,16 +1,16 @@
 import withUser from '../hoc/withUser';
 import { useEffect, useState } from 'react'
 import { LoginAPI } from '../api/LoginAPI';
+import { useId } from '../context/IdContext'
+import ProfileItem from './ProfileItem';
 
-function Profile(props) {
+function Profile() {
 	const [ items, setItems ] = useState([])
+	const { id } = useId()
 
 	useEffect(() => {
-		this.props.parentCallback("Data from child");
-
-		LoginAPI.getTranslations(1).then(items => {
-			console.log(items)
-			setItems(items)
+		LoginAPI.getTranslations(id).then(data => {
+			setItems(data.translations)
 		})
 		.catch(error => {
 			console.log(error)
@@ -20,9 +20,19 @@ function Profile(props) {
 	return (
 		<div className="profile">
 			<h3>Profile page</h3>
-			<ul>
-				<li></li>
-			</ul>
+			<table>
+				<thead>
+					<tr>		
+						<th>Translation</th>
+						<th></th>
+					</tr>			
+				</thead>
+				<tbody>
+					{ items.map((value,index) => 
+						<ProfileItem key={index} data={{index: index, translation: value, userId: id, items: items}}  />) 
+					}
+				</tbody>
+			</table>
 		</div>
 	)
 }

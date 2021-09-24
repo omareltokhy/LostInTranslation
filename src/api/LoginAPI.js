@@ -62,6 +62,6 @@ export const LoginAPI = {
 		.catch(error => {
 			console.log(error)
 		})
-    }
+    },
 }
 
