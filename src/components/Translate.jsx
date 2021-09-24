@@ -4,6 +4,7 @@ import TranslateToSignLanguage from './TranslateToSignLanguage';
 import {API} from '../api/API'
 import {useState, useEffect} from 'react'
 import { useId } from '../context/IdContext'
+import { useTranslations } from '../context/TranslationContext'
 
 function Translate() {
 
@@ -12,9 +13,6 @@ function Translate() {
 	const { id, setId } = useId()
 
 	const handleTranslateClick = () => {
-		//const sentence = document.getElementById('sentence').value
-		//TranslateToSignLanguage(sentence)
-
 		API.getTranslations(id).then(data => {
 			setItems(data.translations)
 		})
@@ -24,14 +22,18 @@ function Translate() {
 	}
 
 	useEffect(() => {
-		let newItems = items
-		newItems.push(sentence)
+		const input = document.getElementById('sentence').value
 
-		const userTranslations = {
-			id: id,
-			translation: newItems
+		if(input !== '') {
+			let newItems = items
+			newItems.push(sentence)
+	
+			const userTranslations = {
+				id: id,
+				translation: newItems
+			}
+			API.addTranslation(userTranslations);	
 		}
-		API.addTranslation(userTranslations);	
 	 }, [ items ]) 
 
 	console.log('Translate.render')

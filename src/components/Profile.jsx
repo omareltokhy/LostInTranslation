@@ -18,6 +18,21 @@ function Profile() {
 		setId('')
 	}
 
+	const deleteButtonHandler = (index) => {		
+		deleteClick(index)
+	}
+
+	const deleteClick = (index) => {
+		const translations = items
+		translations.splice(index, 1);
+
+		const userTranslations = {
+			id: id,
+			translation: translations 
+		}
+		API.addTranslation(userTranslations).then(data => setItems(data.translations))
+	}
+
 	useEffect(() => {
 		if(user === '') {
 			history.push('/')
@@ -45,7 +60,7 @@ function Profile() {
 				</thead>
 				<tbody>
 					{ items.map((value,index) => 
-						<ProfileItem key={index} data={{index: index, translation: value, userId: id, items: items}}  />) 
+						<ProfileItem key={index} data={{index: index, translation: value}} buttonClick={deleteButtonHandler} />) 
 					}
 				</tbody>
 			</table>
