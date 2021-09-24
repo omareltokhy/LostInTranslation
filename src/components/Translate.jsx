@@ -2,7 +2,6 @@ import React from 'react';
 import withUser from '../hoc/withUser';
 import TranslateToSignLanguage from './TranslateToSignLanguage';
 import {LoginAPI} from '../api/LoginAPI'
-import { useUser } from '../context/UserContext'
 import {useState} from 'react'
 import { useId } from '../context/IdContext'
 
@@ -13,8 +12,9 @@ function Translate() {
 	const { id, setId } = useId()
 
 	const handleTranslateClick = () => {
-		const sentence = document.getElementById('sentence').value
+		//const sentence = document.getElementById('sentence').value
 		console.log(sentence)
+		//TranslateToSignLanguage(sentence)
 
 		const userTranslations = {
 			id: id,
@@ -29,10 +29,10 @@ function Translate() {
 		<div>
 		   <h1>Translate page</h1>
 		   <label>Enter a sentence:</label>
-		   <input type="text" id="sentence" onChange = {setSentence.bind.value}/>
+		   <input type="text" id="sentence" value = {sentence} onChange = {e => setSentence(e.target.value)}/>
 		   <button onClick = {handleTranslateClick}>Translate</button>
 		   <h2>Translation:</h2>
-		   <TranslateToSignLanguage/>
+		   <TranslateToSignLanguage data = { sentence }/>
 		</div>
 	)
 }

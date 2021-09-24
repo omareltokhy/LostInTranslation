@@ -1,17 +1,21 @@
 import React from "react";
-import { useState } from "react";
+//import { useState } from "react";
 import signLanguageImages from "./SignLanguageImages";
 
-const TranslateToSignLanguage = (sentence) => {
-    const alphabets = /[a-z]/;
-    const letters = ['h','e','l','l','o']
+const TranslateToSignLanguage = (input) => {
+
+    console.log(input.data)
+    if(input === '')return '';
+    const alphabets = /[a-z\s]/;
+    let letters = input.data.toString().toLowerCase().split('');
+    console.log(letters)
     const signLanguageSentence = [];
 
-    for (let i = 0; i < letters.length; i++) {
+    /*for (let i = 0; i < letters.length; i++) {
         if(!alphabets.test(letters[i])){
             return 'Only letters from a-z are accepted'
         }
-    }
+    }*/
 
     for (let i = 0; i < letters.length; i++) {
         switch (letters[i]) {
