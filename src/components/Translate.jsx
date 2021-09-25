@@ -8,12 +8,13 @@ import styles from './Translate.module.css'
 
 function Translate() {
 	const [sentence, setSentence] = useState('');
+	const [input, setInput] = useState('');
 	const [ items, setItems ] = useState([])
 	const { id } = useId()
 
 	// on translate button click, get all translations and set state
 	const handleTranslateClick = () => {
-
+		setInput(sentence)
 		API.getTranslations(id).then(data => {
 			setItems(data.translations)
 		})
@@ -46,8 +47,8 @@ function Translate() {
 		   <input className={styles.inputField} type="text" id="sentence" value = {sentence} onChange = {e => setSentence(e.target.value)}/>
 		   <button onClick = {handleTranslateClick} className={styles.translateButton}>Translate</button>
 		   <h2 className={styles.translationFor}>Translation for: {sentence}</h2>
-		   <div className={styles.translationArea}>
-		   <TranslateToSignLanguage data = { sentence }/>
+		   <div className={styles.translationArea}>	   
+		   <TranslateToSignLanguage data = { input }/>
 		   </div>
 		   </div>
 		</div>

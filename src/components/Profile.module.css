@@ -44,7 +44,8 @@
     flex-direction: column;
     justify-content: center;*/
     font-weight: 700;
-    margin-right: 40px;
+    margin-right: 20px;
+    list-style-type: none;
 }
 
 .translationListContainer{

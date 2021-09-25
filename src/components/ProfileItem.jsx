@@ -1,12 +1,10 @@
 import withUser from '../hoc/withUser';
+import styles from './Profile.module.css';
 
 // table row component for profile page
 function ProfileItem(props){
 	return (
-		<tr key={props.data.index}>
-			<td>{props.data.translation}</td>
-			{/*<td><button onClick= { () => props.buttonClick(props.data.index) }>Delete</button></td>*/}
-		  </tr>
+		<li className={styles.translationList}>{props.data.translation}</li>
 	  )
 } 
 
