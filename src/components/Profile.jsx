@@ -5,6 +5,7 @@ import { useId } from '../context/IdContext'
 import { useUser } from '../context/UserContext'
 import ProfileItem from './ProfileItem';
 import { useHistory } from "react-router-dom";
+import styles from './Profile.module.css';
 
 function Profile() {
 	const [ items, setItems ] = useState([])
@@ -26,8 +27,9 @@ function Profile() {
 
 	// remove clicked item from items array, update api
 	const deleteClick = (index) => {
-		const translations = items
-		translations.splice(index, 1);
+		//const translations = items
+	    const translations = [];
+		//translations.splice(index, 1);
 
 		const userTranslations = {
 			id: id,
@@ -53,12 +55,14 @@ function Profile() {
 	}, [user])
 	
 	return (
-		<div className="profile">
-			<h3>Profile page</h3>
-			<table>
+		<div className={styles.container}>
+			<div className={styles.profile}>
+			<h1>Hello, {user}!</h1>
+			<h3>Your recent translations</h3>
+			{/*<table>
 				<thead>
 					<tr>		
-						<th>Translation</th>
+						<th></th>
 						<th></th>
 					</tr>			
 				</thead>
@@ -67,8 +71,15 @@ function Profile() {
 						<ProfileItem key={index} data={{index: index, translation: value}} buttonClick={deleteButtonHandler} />) 
 					}
 				</tbody>
-			</table>
-			<button onClick= { handleLogoutClick }>Logout</button>
+				</table>*/}
+			<div className={styles.translationListContainer}>
+			<ul className={styles.translationList}>{ items.map((value,index) => 
+						<ProfileItem key={index} data={{index: index, translation: value}} />) 
+					}</ul>
+			</div>
+			<button className={styles.deleteButton} onClick={ deleteButtonHandler }>Clear</button>
+			<button className={styles.logoutButton} onClick= { handleLogoutClick }>Logout</button>
+			</div>
 		</div>
 	)
 }

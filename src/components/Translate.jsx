@@ -4,6 +4,7 @@ import TranslateToSignLanguage from './TranslateToSignLanguage';
 import {API} from '../api/API'
 import {useState, useEffect} from 'react'
 import { useId } from '../context/IdContext'
+import styles from './Translate.module.css'
 
 function Translate() {
 	const [sentence, setSentence] = useState('');
@@ -12,6 +13,7 @@ function Translate() {
 
 	// on translate button click, get all translations and set state
 	const handleTranslateClick = () => {
+
 		API.getTranslations(id).then(data => {
 			setItems(data.translations)
 		})
@@ -38,13 +40,16 @@ function Translate() {
 
 	console.log('Translate.render')
 	return (
-		<div>
-		   <h1>Translate page</h1>
-		   <label>Enter a sentence:</label>
-		   <input type="text" id="sentence" value = {sentence} onChange = {e => setSentence(e.target.value)}/>
-		   <button onClick = {handleTranslateClick}>Translate</button>
-		   <h2>Translation:</h2>
+		<div className={styles.container}>
+		   <div className={styles.translate}>
+		   <h2 className={styles.heading}>Enter a word or sentence to translate</h2>
+		   <input className={styles.inputField} type="text" id="sentence" value = {sentence} onChange = {e => setSentence(e.target.value)}/>
+		   <button onClick = {handleTranslateClick} className={styles.translateButton}>Translate</button>
+		   <h2 className={styles.translationFor}>Translation for: {sentence}</h2>
+		   <div className={styles.translationArea}>
 		   <TranslateToSignLanguage data = { sentence }/>
+		   </div>
+		   </div>
 		</div>
 	)
 }

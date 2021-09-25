@@ -1,0 +1,59 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile{
+    position: relative ;
+    display: flex;
+    flex-direction: column;
+    margin: 4rem;
+    padding: 2rem;
+    background-color: yellow;
+    color: blueviolet;
+    width: 80%;
+    height: 300px auto;
+    text-align: center;
+    box-shadow: 0 0 1.8rem 0.5rem #302c1a;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutButton{
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: blueviolet;
+    color: white;
+    width: 100px;
+}
+
+.deleteButton{
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: blueviolet;
+    color: white;
+    width: 100px;
+}
+
+.translationList{
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;*/
+    font-weight: 700;
+    margin-right: 40px;
+}
+
+.translationListContainer{
+    background-color: white;
+    max-width: 80%;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 5px;
+    color: black;
+    display:flex;
+    justify-content: center;
+}

@@ -5,7 +5,7 @@ function ProfileItem(props){
 	return (
 		<tr key={props.data.index}>
 			<td>{props.data.translation}</td>
-			<td><button onClick= { () => props.buttonClick(props.data.index) }>Delete</button></td>
+			{/*<td><button onClick= { () => props.buttonClick(props.data.index) }>Delete</button></td>*/}
 		  </tr>
 	  )
 } 

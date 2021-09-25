@@ -103,7 +103,7 @@ const TranslateToSignLanguage = (input) => {
 
     return(
         <>
-        { signLanguageSentence.map((currElement, index) => <img key={index} src={currElement} alt="SignLanguage" />)}
+        { signLanguageSentence.map((currElement, index) => <img key={index} src={currElement} alt="SignLanguage" width="50px"/>)}
         </>
     )
 }

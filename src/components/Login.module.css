@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    position: relative ;
+    display: flex;
+    flex-direction: column;
+    margin: 4rem;
+    padding: 2rem;
+    background-color: yellow;
+    color: blueviolet;
+    width: 80%;
+    height: 300px;
+    text-align: center;
+    box-shadow: 0 0 1.8rem 0.5rem #302c1a;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginButton{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: blueviolet;
+    color: white;
+    width: 100px;
+}
+
+.inputField{
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.boxText{
+    font-weight: 900;
+}
+
+.askForInput{
+    font-weight: 700;
+}
