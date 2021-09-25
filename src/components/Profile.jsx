@@ -74,7 +74,7 @@ function Profile() {
 				</tbody>
 				</table>*/}
 			<div className={styles.translationListContainer}>
-			<ul className={styles.translationList}>{ items.map((value,index) => 
+			<ul className={styles.translationList}>{ items.slice(-10).map((value,index) => 
 						<ProfileItem key={index} data={{index: index, translation: value}} />) 
 					}</ul>
 			</div>
