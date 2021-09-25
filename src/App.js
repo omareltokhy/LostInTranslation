@@ -18,15 +18,16 @@ function App() {
   return (
     <BrowserRouter>
       <nav className={styles.Navbar}>
+        <h1 className={styles.header}>Lost In Translation</h1>
         <ul className={styles.NavbarMenu}>
           <li className={styles.NavbarMenuItem}>
-            <NavLink exact to="/">Login</NavLink>
+            <NavLink exact to="/" className={styles.navlink}>Login</NavLink>
           </li>  
           <li className={styles.NavbarMenuItem}>
-            <NavLink to="/translate">Translate</NavLink>
+            <NavLink to="/translate" className={styles.navlink}>Translate</NavLink>
           </li>  
           <li className={styles.NavbarMenuItem}>
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/profile" className={styles.navlink}>Profile</NavLink>
           </li> 
         </ul>
       </nav>    
