@@ -17,6 +17,7 @@ function Profile() {
 	const handleLogoutClick = () => {
 		setUser('')
 		setId('')
+		setItems([])
 	}
 
 	// handler for child click event for deleting table rows and items
@@ -36,12 +37,12 @@ function Profile() {
 		API.addTranslation(userTranslations).then(data => setItems(data.translations))
 	}
 
-	// if user state has been cleared, go to login page otherwise retrieve translations
+	// if user state has been cleared, go to login page, otherwise retrieve first 10 translations
 	useEffect(() => {
 		if(user === '') {
 			history.push('/')
 		} else {
-			
+			// get translations, set first 10
 			API.getTranslations(id).then(data => {
 				setItems(data.translations)
 			})
@@ -63,7 +64,7 @@ function Profile() {
 					</tr>			
 				</thead>
 				<tbody>
-					{ items.map((value,index) => 
+					{ items.slice(-10).map((value,index) => 
 						<ProfileItem key={index} data={{index: index, translation: value}} buttonClick={deleteButtonHandler} />) 
 					}
 				</tbody>
